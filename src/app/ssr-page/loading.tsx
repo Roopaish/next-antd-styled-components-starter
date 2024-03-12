@@ -2,6 +2,7 @@
 
 import { Flex, Spin } from "antd";
 
+// For the awaiting time in SSR, we can show a loader
 export default function Loader() {
   return (
     <Flex
