@@ -1,6 +1,7 @@
 "use client";
 
 import { Title } from "@/components/ui/title";
+import { siteConfig } from "@/data/config";
 import useBreakpoints from "@/hooks/use-breakpoints";
 import withTheme from "@/theme";
 import { Button, Divider, Space } from "antd";
@@ -19,7 +20,7 @@ function Home() {
       }}
     >
       <Space align="start">
-        <h2 style={{ marginBottom: 0 }}>Ant Design</h2>
+        <h2 style={{ marginBottom: 0 }}>{siteConfig.name}</h2>
       </Space>
       <Divider style={{ marginBottom: 60 }}>Divider</Divider>
       <Button type="primary">Button</Button>
