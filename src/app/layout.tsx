@@ -1,5 +1,4 @@
-import StyledComponentsRegistry from "@/lib/registry";
-import GlobalStyles from "@/theme/global-styles";
+import Providers from "@/lib/providers";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -18,10 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GlobalStyles />
       <body className={inter.className}>
         <AntdRegistry>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          <Providers>{children}</Providers>
         </AntdRegistry>
       </body>
     </html>

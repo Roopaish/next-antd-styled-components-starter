@@ -1,5 +1,3 @@
-"use client";
-
 import { Flex, Spin } from "antd";
 
 // For the awaiting time in SSR, we can show a loader

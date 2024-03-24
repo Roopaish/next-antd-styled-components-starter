@@ -1,13 +1,11 @@
 "use client";
 
-import { Title } from "@/components/ui/title";
 import { siteConfig } from "@/data/config";
 import useBreakpoints from "@/hooks/use-breakpoints";
-import withTheme from "@/theme";
 import { Button, Divider, Space } from "antd";
 import Link from "next/link";
 
-function Home() {
+export default function Home() {
   const breakpoints = useBreakpoints();
 
   return (
@@ -24,7 +22,6 @@ function Home() {
       </Space>
       <Divider style={{ marginBottom: 60 }}>Divider</Divider>
       <Button type="primary">Button</Button>
-      <Title>Hello From Styled Component</Title>
       <Button type="primary">
         <Link href={"/ssr-page"}>Go to SSR Page</Link>
       </Button>
@@ -34,9 +31,3 @@ function Home() {
     </section>
   );
 }
-
-const HomePage = () => {
-  return withTheme(<Home />);
-};
-
-export default HomePage;

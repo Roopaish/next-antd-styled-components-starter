@@ -1,3 +1,14 @@
 # Next Antd Styled-Components Starter using the App directory
 
-- To use theme, make the component run on client side and wrap it with withTheme
+## Includes
+
+- Reusable UI components and theming
+- Theming and SSR support using styled-components and antd
+
+## TODO
+
+[] Eslint and prettier and configuration
+
+## Notes
+
+- When using styled-component, mark the file with 'use client'

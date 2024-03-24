@@ -1,3 +1,5 @@
+"use client";
+
 import { ResponsiveValue, generateResponsiveStyle } from "@/lib/breakpoints";
 import styled from "styled-components";
 

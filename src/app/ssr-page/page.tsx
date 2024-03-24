@@ -1,4 +1,4 @@
-import SSRContent from "./SSRContent";
+import { Button } from "antd";
 
 async function getSomethingFromServer(): Promise<string> {
   return new Promise((resolve) => {
@@ -13,7 +13,16 @@ export default async function SSRPage() {
 
   return (
     <main>
-      <SSRContent txt={txt} />
+      <section
+        style={{
+          textAlign: "center",
+          marginTop: 48,
+          marginBottom: 40,
+          padding: 100,
+        }}
+      >
+        <Button type="primary">{txt}</Button>
+      </section>
     </main>
   );
 }

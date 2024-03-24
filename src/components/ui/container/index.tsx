@@ -9,7 +9,7 @@ export default function Container({
   maxW,
   children,
   ...rest
-}: ContainerProps & CSSProperties & { children: ReactNode }) {
+}: ContainerProps & CSSProperties & { children?: ReactNode }) {
   return (
     <StyledContainer
       px={px}
