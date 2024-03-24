@@ -1,11 +1,14 @@
 "use client";
 
 import { Title } from "@/components/ui/title";
+import useBreakpoints from "@/hooks/use-breakpoints";
 import withTheme from "@/theme";
 import { Button, Divider, Space } from "antd";
 import Link from "next/link";
 
 function Home() {
+  const breakpoints = useBreakpoints();
+
   return (
     <section
       style={{
@@ -24,6 +27,9 @@ function Home() {
       <Button type="primary">
         <Link href={"/ssr-page"}>Go to SSR Page</Link>
       </Button>
+      <br />
+      <h1>Breakpoints using useBreakpoints</h1>
+      {JSON.stringify(breakpoints)}
     </section>
   );
 }
