@@ -4,7 +4,7 @@
   if we use 'use client' in page, we wont be able to do server side rendering
 */
 
-import { Title } from "@/components/title";
+import { Title } from "@/components/ui/title";
 import withTheme from "@/theme";
 import { Button } from "antd";
 

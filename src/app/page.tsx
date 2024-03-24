@@ -1,6 +1,6 @@
 "use client";
 
-import { Title } from "@/components/title";
+import { Title } from "@/components/ui/title";
 import withTheme from "@/theme";
 import { Button, Divider, Space } from "antd";
 import Link from "next/link";

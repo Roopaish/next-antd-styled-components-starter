@@ -1,6 +1,6 @@
-import { ThemeConfig } from "antd/es/config-provider/context";
 import "styled-components";
+import { StyledComponentsTheme } from "./src/theme";
 
 declare module "styled-components" {
-  export interface DefaultTheme extends ThemeConfig {}
+  export interface DefaultTheme extends StyledComponentsTheme {}
 }
