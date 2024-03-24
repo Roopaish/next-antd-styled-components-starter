@@ -7,8 +7,10 @@
 
 ## TODO
 
-[] Eslint and prettier and configuration
+[ ] Eslint and prettier configuration
 
 ## Notes
 
-- When using styled-component, mark the file with 'use client'
+- When using styled-component, mark the file with `'use client'`
+- Always use `shouldNotForwardPropsWithKeys` (/lib/styled.ts), to avoid styled components custom props to end up in the DOM
+- Follow the structure as it is now
