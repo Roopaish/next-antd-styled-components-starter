@@ -1,6 +1,7 @@
 "use client";
 
 import { ResponsiveValue, generateResponsiveStyle } from "@/lib/breakpoints";
+import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
 import styled from "styled-components";
 
 interface PaddingProps {
@@ -13,7 +14,17 @@ interface PaddingProps {
   vertical?: ResponsiveValue<number>;
 }
 
-export const Padding = styled.div<PaddingProps>`
+export const Padding = styled.div.withConfig({
+  shouldForwardProp: shouldNotForwardPropsWithKeys<PaddingProps>([
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "all",
+    "horizontal",
+    "vertical",
+  ]),
+})<PaddingProps>`
   ${({ top }) => top && generateResponsiveStyle("padding-top", top)}
   ${({ bottom }) => bottom && generateResponsiveStyle("padding-bottom", bottom)}
   ${({ left }) => left && generateResponsiveStyle("padding-left", left)}
