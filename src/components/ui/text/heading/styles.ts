@@ -2,6 +2,7 @@
 
 import { media } from "@/lib/breakpoints";
 import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import { StyledComponentsTheme } from "@/theme";
 import styled, { css } from "styled-components";
 
 export interface HeadingProps {
@@ -13,6 +14,7 @@ export interface HeadingProps {
   desktopStyleOnly?: boolean;
   inline?: boolean;
   textAlign?: "center" | "left" | "right";
+  themeColor?: keyof StyledComponentsTheme["token"];
 }
 
 const baseStyle = css<HeadingProps>`
@@ -20,7 +22,10 @@ const baseStyle = css<HeadingProps>`
   font-style: normal;
   font-weight: ${(props) =>
     props.bold ? 700 : props.semibold ? 600 : props.medium ? 500 : 400};
-  color: ${(props) => props.color || "inherit"};
+  color: ${(props) =>
+    props.themeColor
+      ? props.theme.token[props.themeColor as "colorPrimary"]
+      : props.color || "inherit"};
   margin: 0;
   display: ${(props) => (props.inline ? "inline" : "block")};
   text-align: ${(props) => props.textAlign};

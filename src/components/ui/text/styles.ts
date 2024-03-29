@@ -1,6 +1,7 @@
 "use client";
 
 import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import { StyledComponentsTheme } from "@/theme";
 import styled, { css } from "styled-components";
 
 interface TextProps {
@@ -12,6 +13,7 @@ interface TextProps {
   strike?: boolean;
   inline?: boolean;
   textAlign?: "center" | "left" | "right";
+  themeColor?: keyof StyledComponentsTheme["token"];
 }
 
 export const Text = styled("p").withConfig({
@@ -30,7 +32,10 @@ export const Text = styled("p").withConfig({
   font-style: normal;
   font-weight: ${(props) =>
     props.bold ? 700 : props.semibold ? 600 : props.medium ? 500 : 400};
-  color: ${(props) => props.color || "inherit"};
+  color: ${(props) =>
+    props.themeColor
+      ? props.theme.token[props.themeColor as "colorPrimary"]
+      : props.color || "inherit"};
   margin: 0;
   text-decoration: ${({ strike }) => (strike ? "line-through" : "none")};
   display: ${({ inline }) => (inline ? "inline" : "block")};

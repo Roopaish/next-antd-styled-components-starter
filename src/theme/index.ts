@@ -32,6 +32,8 @@ export const styledComponentsTheme = {
     gray11: "#1f1f1f",
     gray12: "#141414",
     gray13: "#000000",
+
+    icon: "#000",
   },
 };
 

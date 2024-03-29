@@ -1,10 +1,22 @@
+"use client";
+
+import { StyledComponentsTheme } from "@/theme";
+import { useTheme } from "styled-components";
 import SearchIcon from "./search.icon";
 
 export default function Icon({
   type,
-  color = "currentColor",
+  color,
   size = 28,
-}: IconProps) {
+  themeColor = "icon",
+}: IconProps & { type: IconType }) {
+  const { token } = useTheme();
+  color = !!color
+    ? color
+    : !!themeColor
+    ? token[themeColor as "colorPrimary"]
+    : "currentColor";
+
   return (
     <>
       {
@@ -19,7 +31,7 @@ export default function Icon({
 export type IconType = "search";
 
 export type IconProps = {
-  type: IconType;
   size?: number;
   color?: string;
+  themeColor?: keyof StyledComponentsTheme["token"];
 };
