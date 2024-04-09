@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "styled-components"
 
 const breakpoints = {
   base: 0,
@@ -26,33 +26,40 @@ const breakpoints = {
    * screen width >= 1600px
    */
   xxl: 1600,
-};
+}
 
-export const media = Object.keys(breakpoints).reduce((accumulator, label) => {
-  if (label === "xs") {
-    accumulator[label] = (styles: TemplateStringsArray | string) => css`
-      @media (max-width: ${breakpoints[label]}px) {
-        ${styles}
-      }
-    `;
-  }
+export const media = Object.keys(breakpoints).reduce(
+  (accumulator, label) => {
+    if (label === "xs") {
+      accumulator[label] = (styles: TemplateStringsArray | string) => css`
+        @media (max-width: ${breakpoints[label]}px) {
+          ${styles}
+        }
+      `
+    }
 
-  // used `else if` instead of `else` to avoid typescript errors
-  else if (
-    label === "xxl" ||
-    label === "xl" ||
-    label === "lg" ||
-    label === "md" ||
-    label === "sm"
-  ) {
-    accumulator[label] = (styles: TemplateStringsArray | string) => css`
-      @media (min-width: ${breakpoints[label]}px) {
-        ${styles}
-      }
-    `;
+    // used `else if` instead of `else` to avoid typescript errors
+    else if (
+      label === "xxl" ||
+      label === "xl" ||
+      label === "lg" ||
+      label === "md" ||
+      label === "sm"
+    ) {
+      accumulator[label] = (styles: TemplateStringsArray | string) => css`
+        @media (min-width: ${breakpoints[label]}px) {
+          ${styles}
+        }
+      `
+    }
+    return accumulator
+  },
+  {} as {
+    [key in keyof Breakpoints]: (
+      styles: TemplateStringsArray | string
+    ) => ReturnType<typeof css>
   }
-  return accumulator;
-}, {} as { [key in keyof Breakpoints]: (styles: TemplateStringsArray | string) => ReturnType<typeof css> });
+)
 
 export const generateResponsiveStyle = (
   property: string,
@@ -61,32 +68,30 @@ export const generateResponsiveStyle = (
   if (typeof value === "number" || typeof value === "string") {
     const style = `${property}: ${value}${
       typeof value === "number" ? "px" : ""
-    };`;
+    };`
     return css`
       ${style}
-    `;
+    `
   }
 
   const breakpointStyles = Object.entries(value).map(([breakpoint, val]) => {
     if (breakpoint === "base") {
-      const style = `${property}: ${val}${
-        typeof val === "number" ? "px" : ""
-      };`;
+      const style = `${property}: ${val}${typeof val === "number" ? "px" : ""};`
       return css`
         ${style}
-      `;
+      `
     }
 
     const breakpointStyle = media[breakpoint as keyof typeof media](
       `${property}: ${val}${typeof val === "number" ? "px" : ""};`
-    );
+    )
     return css`
       ${breakpointStyle};
-    `;
-  });
+    `
+  })
 
-  return breakpointStyles;
-};
+  return breakpointStyles
+}
 
-export type Breakpoints = typeof breakpoints;
-export type ResponsiveValue<T> = T | { [breakpoint in keyof Breakpoints]?: T };
+export type Breakpoints = typeof breakpoints
+export type ResponsiveValue<T> = T | { [breakpoint in keyof Breakpoints]?: T }

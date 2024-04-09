@@ -1,10 +1,11 @@
-"use client";
+"use client"
 
-import { Grid } from "antd";
-const { useBreakpoint } = Grid;
+import { Grid } from "antd"
+
+const { useBreakpoint } = Grid
 
 export default function useBreakpoints() {
-  const breakpoints = useBreakpoint();
+  const breakpoints = useBreakpoint()
 
-  return breakpoints;
+  return breakpoints
 }

@@ -1,4 +1,4 @@
-import { IconProps } from ".";
+import { IconProps } from "."
 
 export default function SearchIcon({ size, color }: Omit<IconProps, "type">) {
   return (
@@ -16,5 +16,5 @@ export default function SearchIcon({ size, color }: Omit<IconProps, "type">) {
         fill={color}
       />
     </svg>
-  );
+  )
 }

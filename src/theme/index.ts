@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
-import { theme } from "antd";
-import type { ThemeConfig } from "antd/es/config-provider/context";
+import { theme } from "antd"
+import type { ThemeConfig } from "antd/es/config-provider/context"
 
-const { defaultAlgorithm } = theme;
+const { defaultAlgorithm } = theme
 
 export const customTheme: ThemeConfig = {
   ...theme,
@@ -20,7 +20,7 @@ export const customTheme: ThemeConfig = {
     colorPrimary: "#00775e",
   },
   algorithm: defaultAlgorithm,
-};
+}
 
 export const styledComponentsTheme = {
   ...customTheme,
@@ -43,6 +43,6 @@ export const styledComponentsTheme = {
 
     icon: "#000",
   },
-};
+}
 
-export type StyledComponentsTheme = typeof styledComponentsTheme;
+export type StyledComponentsTheme = typeof styledComponentsTheme

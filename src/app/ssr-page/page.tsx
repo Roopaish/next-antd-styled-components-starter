@@ -1,15 +1,15 @@
-import { Button } from "antd";
+import { Button } from "antd"
 
 async function getSomethingFromServer(): Promise<string> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve("Text from Server");
-    }, 1000);
-  });
+      resolve("Text from Server")
+    }, 1000)
+  })
 }
 
 export default async function SSRPage() {
-  const txt = await getSomethingFromServer();
+  const txt = await getSomethingFromServer()
 
   return (
     <main>
@@ -24,5 +24,5 @@ export default async function SSRPage() {
         <Button type="primary">{txt}</Button>
       </section>
     </main>
-  );
+  )
 }

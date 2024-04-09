@@ -1,9 +1,9 @@
-import type { ThemeConfig } from "antd";
-import { createGlobalStyle, css } from "styled-components";
+import type { ThemeConfig } from "antd"
+import { createGlobalStyle, css } from "styled-components"
 
 type Props = {
-  theme?: ThemeConfig;
-};
+  theme?: ThemeConfig
+}
 
 const styles = css`
   body {
@@ -33,10 +33,10 @@ const styles = css`
       display: none;
     }
   }
-`;
+`
 
 const GlobalStyles = createGlobalStyle<Props>`
 ${styles}
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

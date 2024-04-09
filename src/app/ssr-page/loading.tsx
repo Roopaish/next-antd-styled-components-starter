@@ -1,4 +1,4 @@
-import { Flex, Spin } from "antd";
+import { Flex, Spin } from "antd"
 
 // For the awaiting time in SSR, we can show a loader
 export default function Loader() {
@@ -10,5 +10,5 @@ export default function Loader() {
     >
       <Spin size="large" />
     </Flex>
-  );
+  )
 }

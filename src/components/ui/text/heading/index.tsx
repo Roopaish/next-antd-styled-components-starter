@@ -1,4 +1,5 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react"
+
 import {
   Heading1,
   Heading2,
@@ -7,7 +8,7 @@ import {
   Heading5,
   Heading6,
   HeadingProps,
-} from "./styles";
+} from "./styles"
 
 export function Heading({
   size = "l",
@@ -17,9 +18,9 @@ export function Heading({
   ...rest
 }: HeadingProps &
   HTMLAttributes<HTMLHeadingElement> & {
-    size?: "xl" | "l" | "m" | "s" | "xs" | "xxs";
-    mobile?: boolean;
-    desktop?: boolean;
+    size?: "xl" | "l" | "m" | "s" | "xs" | "xxs"
+    mobile?: boolean
+    desktop?: boolean
   }) {
   return (
     <>
@@ -34,5 +35,5 @@ export function Heading({
         }[size]
       }
     </>
-  );
+  )
 }

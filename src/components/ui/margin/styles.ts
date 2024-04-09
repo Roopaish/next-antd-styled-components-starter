@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
 import {
-  ResponsiveValue,
   generateResponsiveStyle,
-} from "@/lib/utils/breakpoints";
-import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
-import styled from "styled-components";
+  ResponsiveValue,
+} from "@/lib/utils/breakpoints"
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled"
+import styled from "styled-components"
 
 interface MarginProps {
-  top?: ResponsiveValue<number>;
-  bottom?: ResponsiveValue<number>;
-  left?: ResponsiveValue<number>;
-  right?: ResponsiveValue<number>;
-  all?: ResponsiveValue<number>;
-  horizontal?: ResponsiveValue<number>;
-  vertical?: ResponsiveValue<number>;
+  top?: ResponsiveValue<number>
+  bottom?: ResponsiveValue<number>
+  left?: ResponsiveValue<number>
+  right?: ResponsiveValue<number>
+  all?: ResponsiveValue<number>
+  horizontal?: ResponsiveValue<number>
+  vertical?: ResponsiveValue<number>
 }
 
 export const Margin = styled.div.withConfig({
@@ -41,4 +41,4 @@ export const Margin = styled.div.withConfig({
     vertical && generateResponsiveStyle("margin-top", vertical)}
   ${({ vertical }) =>
     vertical && generateResponsiveStyle("margin-bottom", vertical)}
-`;
+`

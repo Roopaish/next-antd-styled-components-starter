@@ -1,19 +1,19 @@
-import Providers from "@/lib/providers";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import Providers from "@/lib/providers"
+import { AntdRegistry } from "@ant-design/nextjs-registry"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Next Antd Styled-Components Starter",
   description: "Starter Project",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -23,5 +23,5 @@ export default function RootLayout({
         </AntdRegistry>
       </body>
     </html>
-  );
+  )
 }

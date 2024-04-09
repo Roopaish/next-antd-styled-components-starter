@@ -1,5 +1,6 @@
-import { CSSProperties, ReactNode } from "react";
-import { ContainerProps, StyledContainer } from "./styles";
+import { CSSProperties, ReactNode } from "react"
+
+import { ContainerProps, StyledContainer } from "./styles"
 
 export default function Container({
   as,
@@ -10,7 +11,8 @@ export default function Container({
   maxW,
   children,
   ...rest
-}: ContainerProps & CSSProperties & { children?: ReactNode, as?: keyof JSX.IntrinsicElements }) {
+}: ContainerProps &
+  CSSProperties & { children?: ReactNode; as?: keyof JSX.IntrinsicElements }) {
   return (
     <StyledContainer
       as={as}
@@ -23,5 +25,5 @@ export default function Container({
     >
       {children}
     </StyledContainer>
-  );
+  )
 }

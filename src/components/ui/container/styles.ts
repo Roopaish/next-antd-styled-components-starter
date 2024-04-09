@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
 import {
-  ResponsiveValue,
   generateResponsiveStyle,
-} from "@/lib/utils/breakpoints";
-import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
-import { styled } from "styled-components";
+  ResponsiveValue,
+} from "@/lib/utils/breakpoints"
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled"
+import { styled } from "styled-components"
 
 export interface ContainerProps {
-  py?: ResponsiveValue<number>;
-  px?: ResponsiveValue<number>;
-  pt?: ResponsiveValue<number>;
-  pb?: ResponsiveValue<number>;
-  maxW?: string;
+  py?: ResponsiveValue<number>
+  px?: ResponsiveValue<number>
+  pt?: ResponsiveValue<number>
+  pb?: ResponsiveValue<number>
+  maxW?: string
 }
 
 export const StyledContainer = styled("section").withConfig({
@@ -42,4 +42,4 @@ export const StyledContainer = styled("section").withConfig({
     pt && generateResponsiveStyle("padding-top", py ? py : pt)}
   ${({ pb = { base: 24, md: 64 }, py }) =>
     pb && generateResponsiveStyle("padding-bottom", py ? py : pb)}
-`;
+`
