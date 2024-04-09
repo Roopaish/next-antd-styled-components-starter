@@ -26,6 +26,7 @@ export const Text = styled("p").withConfig({
     "medium",
     "inline",
     "textAlign",
+    "themeColor",
   ]),
 })<TextProps>`
   font-family: var(--font-inter);
