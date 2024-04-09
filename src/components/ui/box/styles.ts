@@ -1,11 +1,14 @@
 "use client";
 
-import { ResponsiveValue, generateResponsiveStyle } from "@/lib/breakpoints";
-import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import {
+  ResponsiveValue,
+  generateResponsiveStyle,
+} from "@/lib/utils/breakpoints";
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
 import { CSSProperties } from "react";
 import styled from "styled-components";
 
-type StyledBoxProps = {
+export type StyledBoxProps = {
   display?: ResponsiveValue<CSSProperties["display"]>;
 };
 

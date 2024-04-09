@@ -1,7 +1,7 @@
 "use client";
 
-import { media } from "@/lib/breakpoints";
-import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import { media } from "@/lib/utils/breakpoints";
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
 import { StyledComponentsTheme } from "@/theme";
 import styled, { css } from "styled-components";
 

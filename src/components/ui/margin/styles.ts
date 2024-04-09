@@ -1,7 +1,10 @@
 "use client";
 
-import { ResponsiveValue, generateResponsiveStyle } from "@/lib/breakpoints";
-import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import {
+  ResponsiveValue,
+  generateResponsiveStyle,
+} from "@/lib/utils/breakpoints";
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
 import styled from "styled-components";
 
 interface MarginProps {

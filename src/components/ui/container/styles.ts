@@ -1,7 +1,10 @@
 "use client";
 
-import { ResponsiveValue, generateResponsiveStyle } from "@/lib/breakpoints";
-import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import {
+  ResponsiveValue,
+  generateResponsiveStyle,
+} from "@/lib/utils/breakpoints";
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
 import { styled } from "styled-components";
 
 export interface ContainerProps {
@@ -36,7 +39,7 @@ export const StyledContainer = styled("section").withConfig({
     px && generateResponsiveStyle("padding-right", px)}
 
   ${({ pt = { base: 24, md: 64 }, py }) =>
-    pt && generateResponsiveStyle("padding-top", py === 0 ? 0 : pt)}
+    pt && generateResponsiveStyle("padding-top", py ? py : pt)}
   ${({ pb = { base: 24, md: 64 }, py }) =>
-    pb && generateResponsiveStyle("padding-bottom", py === 0 ? 0 : pb)}
+    pb && generateResponsiveStyle("padding-bottom", py ? py : pb)}
 `;

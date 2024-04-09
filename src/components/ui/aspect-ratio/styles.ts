@@ -1,6 +1,6 @@
 "use client";
 
-import { shouldNotForwardPropsWithKeys } from "@/lib/styled";
+import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled";
 import styled from "styled-components";
 
 interface OuterWrapperProps {

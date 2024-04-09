@@ -1,14 +1,14 @@
-import { CSSProperties, HTMLAttributes, ReactNode } from "react";
-import { StyledBox } from "./styles";
+import { CSSProperties, ReactNode } from "react";
+import { StyledBox, StyledBoxProps } from "./styles";
 
-type BoxProps<T extends keyof JSX.IntrinsicElements = "div"> = {
-  as?: T;
+type BoxProps = {
+  as?: keyof JSX.IntrinsicElements;
   children?: ReactNode;
   onClick?: () => void;
   id?: string;
   ref?: React.Ref<HTMLDivElement>;
-} & CSSProperties &
-  Omit<HTMLAttributes<JSX.IntrinsicElements[T]>, "as">;
+} & Omit<CSSProperties, "display"> &
+  StyledBoxProps;
 
 export default function Box({
   children,
@@ -16,6 +16,7 @@ export default function Box({
   id,
   ref,
   as,
+  display,
   ...props
 }: BoxProps) {
   return (
@@ -25,7 +26,7 @@ export default function Box({
       id={id}
       ref={ref}
       style={{ ...props }}
-      display={props.display}
+      display={display}
     >
       {children}
     </StyledBox>

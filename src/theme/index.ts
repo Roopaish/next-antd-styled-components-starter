@@ -7,6 +7,14 @@ const { defaultAlgorithm } = theme;
 
 export const customTheme: ThemeConfig = {
   ...theme,
+  components: {
+    Button: {},
+    Input: {
+      paddingBlockLG: 16,
+      paddingInlineLG: 24,
+      fontSizeLG: 20,
+    },
+  },
   token: {
     ...theme.defaultConfig.token,
     colorPrimary: "#00775e",

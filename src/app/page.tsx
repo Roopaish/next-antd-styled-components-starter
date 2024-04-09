@@ -1,33 +1,40 @@
-"use client";
-
+import BreakpointsChecker from "@/components/breakpoints";
+import Box from "@/components/ui/box";
+import Container from "@/components/ui/container";
+import { Margin } from "@/components/ui/margin";
+import { Heading, Text } from "@/components/ui/text";
 import { siteConfig } from "@/data/config";
-import useBreakpoints from "@/hooks/use-breakpoints";
-import { Button, Divider, Space } from "antd";
+import { Button, Divider, Flex, Input } from "antd";
 import Link from "next/link";
 
 export default function Home() {
-  const breakpoints = useBreakpoints();
-
   return (
-    <section
-      style={{
-        textAlign: "center",
-        marginTop: 48,
-        marginBottom: 40,
-        padding: 100,
-      }}
+    <Container
+      as="main"
+      textAlign="center"
+      px={{ md: 48, base: 24 }}
+      py={{ md: 60, base: 30 }}
     >
-      <Space align="start">
-        <h2 style={{ marginBottom: 0 }}>{siteConfig.name}</h2>
-      </Space>
-      <Divider style={{ marginBottom: 60 }}>Divider</Divider>
-      <Button type="primary">Button</Button>
-      <Button type="primary">
-        <Link href={"/ssr-page"}>Go to SSR Page</Link>
-      </Button>
-      <br />
+      <Heading size="xl">{siteConfig.name}</Heading>
+      <Text as='h1' size="xl" themeColor='colorPrimary'>{siteConfig.description}</Text>
+
+      <Margin vertical={{ md: 60, base: 30 }}>
+        <Divider>Divider</Divider>
+      </Margin>
+
+      <Flex gap='12px' justify="center">
+        <Button type="primary" size='large'>Button</Button>
+        <Button type="primary" size='large'>
+          <Link href={"/ssr-page"}>Go to SSR Page</Link>
+        </Button>
+      </Flex>
+
+      <Box as='section' maxWidth='500px' margin='20px auto'>
+        <Input size='large' placeholder="This input is modified from theme/index.ts" />
+      </Box>
+
       <h1>Breakpoints using useBreakpoints</h1>
-      {JSON.stringify(breakpoints)}
-    </section>
+      <BreakpointsChecker />
+    </Container>
   );
 }

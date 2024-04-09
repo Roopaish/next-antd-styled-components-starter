@@ -56,10 +56,12 @@ export const media = Object.keys(breakpoints).reduce((accumulator, label) => {
 
 export const generateResponsiveStyle = (
   property: string,
-  value: ResponsiveValue<number>
+  value: ResponsiveValue<number | string>
 ) => {
-  if (typeof value === "number") {
-    const style = `${property}: ${value}px;`;
+  if (typeof value === "number" || typeof value === "string") {
+    const style = `${property}: ${value}${
+      typeof value === "number" ? "px" : ""
+    };`;
     return css`
       ${style}
     `;
@@ -67,14 +69,16 @@ export const generateResponsiveStyle = (
 
   const breakpointStyles = Object.entries(value).map(([breakpoint, val]) => {
     if (breakpoint === "base") {
-      const style = `${property}: ${val}px;`;
+      const style = `${property}: ${val}${
+        typeof val === "number" ? "px" : ""
+      };`;
       return css`
         ${style}
       `;
     }
 
     const breakpointStyle = media[breakpoint as keyof typeof media](
-      `${property}: ${val}px;`
+      `${property}: ${val}${typeof val === "number" ? "px" : ""};`
     );
     return css`
       ${breakpointStyle};
