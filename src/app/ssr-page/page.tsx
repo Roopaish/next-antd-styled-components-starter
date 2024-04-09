@@ -1,15 +1,20 @@
-import { Button } from "antd"
-
-async function getSomethingFromServer(): Promise<string> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("Text from Server")
-    }, 1000)
-  })
-}
+import { ProductDocument } from "@/api/gql/graphql"
+import { Heading } from "@/components/ui/text"
+import { getClient } from "@/lib/apollo-client"
+import { Button, Card } from "antd"
 
 export default async function SSRPage() {
-  const txt = await getSomethingFromServer()
+  const client = getClient()
+  const { data, error } = await client.query({
+    query: ProductDocument,
+    variables: {
+      slug: "laptop",
+    },
+  })
+
+  if (error) {
+    return <>Error</>
+  }
 
   return (
     <main>
@@ -21,7 +26,9 @@ export default async function SSRPage() {
           padding: 100,
         }}
       >
-        <Button type="primary">{txt}</Button>
+        <Heading>Laptop rendered in server</Heading>
+        <Card>{JSON.stringify(data)}</Card>
+        <Button type="primary">Button</Button>
       </section>
     </main>
   )

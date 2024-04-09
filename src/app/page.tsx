@@ -24,14 +24,26 @@ export default function Home() {
         <Divider>Divider</Divider>
       </Margin>
 
-      <Flex gap="12px" justify="center">
-        <Button type="primary" size="large">
-          Button
-        </Button>
-        <Button type="primary" size="large">
-          <Link href={"/ssr-page"}>Go to SSR Page</Link>
-        </Button>
-      </Flex>
+      <Box maxWidth={500} margin={"0 auto"}>
+        <Flex gap="12px" justify="center" style={{ marginBottom: 20 }}>
+          <Link href={"/login"} style={{ display: "block", width: "100%" }}>
+            <Button type="primary" size="large" block>
+              Login
+            </Button>
+          </Link>
+          <Link href={"/ssr-page"} style={{ display: "block", width: "100%" }}>
+            <Button type="primary" size="large" block>
+              Go to SSR Page
+            </Button>
+          </Link>
+        </Flex>
+
+        <Link href={"/protected-page"}>
+          <Button type="default" block size="large">
+            Go to Protected Page
+          </Button>
+        </Link>
+      </Box>
 
       <Box as="section" maxWidth="500px" margin="20px auto">
         <Input

@@ -6,6 +6,7 @@ import GlobalStyles from "@/theme/global-styles"
 import { ConfigProvider } from "antd"
 import { ThemeProvider } from "styled-components"
 
+import { ApolloWrapper } from "./apollo-wrapper"
 import StyledComponentsRegistry from "./styled-components-registry"
 
 export default function Providers({ children }: { children: ReactNode }) {
@@ -13,7 +14,9 @@ export default function Providers({ children }: { children: ReactNode }) {
     <StyledComponentsRegistry>
       <ThemeProvider theme={styledComponentsTheme}>
         <GlobalStyles />
-        <ConfigProvider theme={customTheme}>{children}</ConfigProvider>
+        <ConfigProvider theme={customTheme}>
+          <ApolloWrapper>{children}</ApolloWrapper>
+        </ConfigProvider>
       </ThemeProvider>
     </StyledComponentsRegistry>
   )
