@@ -39,7 +39,9 @@ export const Heading1 = styled.h1.withConfig({
     "semibold",
     "mobileStyleOnly",
     "desktopStyleOnly",
+    "inline",
     "textAlign",
+    "themeColor",
   ]),
 })<HeadingProps>`
   ${baseStyle}
