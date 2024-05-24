@@ -6,7 +6,6 @@ import type { ThemeConfig } from "antd/es/config-provider/context"
 const { defaultAlgorithm } = theme
 
 export const customTheme: ThemeConfig = {
-  ...theme,
   components: {
     Button: {},
     Input: {
@@ -16,7 +15,6 @@ export const customTheme: ThemeConfig = {
     },
   },
   token: {
-    ...theme.defaultConfig.token,
     colorPrimary: "#00775e",
   },
   algorithm: defaultAlgorithm,

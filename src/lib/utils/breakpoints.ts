@@ -74,23 +74,27 @@ export const generateResponsiveStyle = (
     `
   }
 
-  const breakpointStyles = Object.entries(value).map(([breakpoint, val]) => {
-    if (breakpoint === "base") {
-      const style = `${property}: ${val}${typeof val === "number" ? "px" : ""};`
+  const orderedKeys = ["base", "xs", "sm", "md", "lg", "xl", "xxl"]
+
+  return orderedKeys.map((breakpoint) => {
+    const val = value[breakpoint as keyof typeof value]
+    if (val !== undefined) {
+      if (breakpoint === "base") {
+        const style = `${property}: ${val}${typeof val === "number" ? "px" : ""};`
+        return css`
+          ${style}
+        `
+      }
+
+      const breakpointStyle = media[breakpoint as keyof typeof media](
+        `${property}: ${val}${typeof val === "number" ? "px" : ""};`
+      )
       return css`
-        ${style}
+        ${breakpointStyle};
       `
     }
-
-    const breakpointStyle = media[breakpoint as keyof typeof media](
-      `${property}: ${val}${typeof val === "number" ? "px" : ""};`
-    )
-    return css`
-      ${breakpointStyle};
-    `
+    return null
   })
-
-  return breakpointStyles
 }
 
 export type Breakpoints = typeof breakpoints
