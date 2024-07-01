@@ -2,7 +2,7 @@
 
 import {
   generateResponsiveStyle,
-  ResponsiveValue,
+  type ResponsiveValue,
 } from "@/lib/utils/breakpoints"
 import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled"
 import styled from "styled-components"

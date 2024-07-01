@@ -10,7 +10,8 @@
     "lint": "next lint",
     "format": "prettier --write **/*.{ts,tsx,css,md}",
     "lint-staged": "npx lint-staged",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --config codegen.ts",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",
@@ -27,7 +28,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.2.5",
-    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.0",
     "@swc/plugin-styled-components": "^1.5.119",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -37,7 +38,8 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.4",
+    "typescript-eslint": "^7.14.1"
   },
   "resolutions": {
     "styled-components": "^5"

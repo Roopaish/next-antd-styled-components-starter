@@ -1,6 +1,6 @@
-import { CSSProperties, ReactNode } from "react"
+import { type CSSProperties, type ReactNode } from "react"
 
-import { StyledBox, StyledBoxProps } from "./styles"
+import { StyledBox, type StyledBoxProps } from "./styles"
 
 type BoxProps = {
   as?: keyof JSX.IntrinsicElements

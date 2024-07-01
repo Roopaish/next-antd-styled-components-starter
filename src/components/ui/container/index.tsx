@@ -1,6 +1,6 @@
-import { CSSProperties, ReactNode } from "react"
+import { type CSSProperties, type ReactNode } from "react"
 
-import { ContainerProps, StyledContainer } from "./styles"
+import { StyledContainer, type ContainerProps } from "./styles"
 
 export default function Container({
   as,

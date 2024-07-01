@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode } from "react"
+import { type ReactNode } from "react"
 import { customTheme, styledComponentsTheme } from "@/theme"
 import GlobalStyles from "@/theme/global-styles"
 import { ConfigProvider } from "antd"
