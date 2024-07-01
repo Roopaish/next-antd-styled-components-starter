@@ -2,7 +2,7 @@
 
 import { media } from "@/lib/utils/breakpoints"
 import { shouldNotForwardPropsWithKeys } from "@/lib/utils/styled"
-import { StyledComponentsTheme } from "@/theme"
+import { type StyledComponentsTheme } from "@/theme"
 import styled, { css } from "styled-components"
 
 export interface HeadingProps {

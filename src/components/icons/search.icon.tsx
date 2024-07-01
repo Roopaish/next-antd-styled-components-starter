@@ -1,6 +1,6 @@
-import { IconProps } from "."
+import { type IconProps } from "."
 
-export default function SearchIcon({ size, color }: Omit<IconProps, "type">) {
+export default function SearchIcon({ size, color, ...rest }: IconProps) {
   return (
     <svg
       width={size}
@@ -8,6 +8,7 @@ export default function SearchIcon({ size, color }: Omit<IconProps, "type">) {
       viewBox="0 0 28 28"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...rest}
     >
       <path
         fillRule="evenodd"

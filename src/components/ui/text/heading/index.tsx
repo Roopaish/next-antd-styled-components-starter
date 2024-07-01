@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react"
+import { type HTMLAttributes } from "react"
 
 import {
   Heading1,
@@ -7,7 +7,7 @@ import {
   Heading4,
   Heading5,
   Heading6,
-  HeadingProps,
+  type HeadingProps,
 } from "./styles"
 
 export function Heading({
