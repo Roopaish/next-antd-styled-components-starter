@@ -3,7 +3,7 @@ import BreakpointsChecker from "@/components/breakpoints"
 import Box from "@/components/ui/box"
 import Container from "@/components/ui/container"
 import { Margin } from "@/components/ui/margin"
-import { Heading, Text } from "@/components/ui/text"
+import { Text } from "@/components/ui/text"
 import { siteConfig } from "@/data/config"
 import { Button, Divider, Flex, Input } from "antd"
 
@@ -15,8 +15,7 @@ export default function Home() {
       px={{ md: 48, base: 24 }}
       py={{ md: 60, base: 30 }}
     >
-      <Heading size="xl">{siteConfig.name}</Heading>
-      <Text as="h1" size="xl" themeColor="colorPrimary">
+      <Text as="h1" size={20} themeColor="colorPrimary">
         {siteConfig.description}
       </Text>
 
