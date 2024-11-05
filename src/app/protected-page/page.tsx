@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation"
 import { MeDocument } from "@/api/gql/graphql"
 import Container from "@/components/ui/container"
-import { Heading } from "@/components/ui/text"
 import { getClient } from "@/lib/apollo-client"
 
 export default async function ProtectedPage() {
@@ -9,7 +8,9 @@ export default async function ProtectedPage() {
   try {
     const client = getClient()
 
-    const { data, error } = await client.query({
+    const { data, error } = await (
+      await client
+    ).query({
       query: MeDocument,
     })
 
@@ -24,7 +25,7 @@ export default async function ProtectedPage() {
 
   return (
     <Container>
-      <Heading>Protected Text</Heading>
+      <div>Protected Text</div>
       {JSON.stringify(d)}
     </Container>
   )

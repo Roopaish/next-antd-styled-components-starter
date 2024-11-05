@@ -2,11 +2,11 @@ import "server-only"
 
 import { cookies } from "next/headers"
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client"
-import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc"
+import { registerApolloClient } from "@apollo/experimental-nextjs-app-support"
 
 import { API_URL, AUTH_TOKEN_KEY } from "./constants"
 
-export const { getClient } = registerApolloClient(() => {
+export const { getClient } = registerApolloClient(async () => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
@@ -15,7 +15,7 @@ export const { getClient } = registerApolloClient(() => {
       // To authorize users using the server side component
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${cookies().get(AUTH_TOKEN_KEY)?.value}`,
+        Authorization: `Bearer ${(await cookies()).get(AUTH_TOKEN_KEY)?.value}`,
       },
       // you can disable result caching here if you want to
       // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
